@@ -8,167 +8,77 @@ import {
   Switch,
   Route,
   Link,
-  Redirect,
+  // Redirect,
   // useParams,
-  useHistory,
-  useRouteMatch,
+  // useHistory,
+  // useRouteMatch,
 } from 'react-router-dom';
+
+import styled from 'styled-components';
 
 const Home = () => (
   <div>
-    <h2>TKTL notes app</h2>
-    <p>
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry&apos;s standard dummy text ever since
-      the 1500s, when an unknown printer took a galley of type and scrambled it
-      to make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, remaining essentially
-      unchanged. It was popularised in the 1960s with the release of Letraset
-      sheets containing Lorem Ipsum passages, and more recently with desktop
-      publishing software like Aldus PageMaker including versions of Lorem
-      Ipsum.
-    </p>
+    <h2>Hey, I&apos;m Philipp!</h2>
+    <p>Welcome to my homepage :)</p>
   </div>
 );
 
-const Note = ({ note }) => (
+const Projects = () => (
   <div>
-    <h2>{note.content}</h2>
-    <div>{note.user}</div>
-    <div>
-      <strong>{note.important ? 'tärkeä' : ''}</strong>
-    </div>
+    <h2>Hey, I&apos;m Philipp!</h2>
+    <p>Welcome to Projects :)</p>
   </div>
 );
 
-const Notes = ({ notes }) => (
+const Notes = () => (
   <div>
-    <h2>Notes</h2>
-    <ul>
-      {notes.map((note) => (
-        <li key={note.id}>
-          <Link to={`/notes/${note.id}`}>{note.content}</Link>
-        </li>
-      ))}
-    </ul>
+    <h2>Hey, I&apos;m Philipp!</h2>
+    <p>Welcome to Notes :)</p>
   </div>
 );
 
-const Users = () => (
+const About = () => (
   <div>
-    <h2>TKTL notes app</h2>
-    <ul>
-      <li>Matti Luukkainen</li>
-      <li>Juha Tauriainen</li>
-      <li>Arto Hellas</li>
-    </ul>
+    <h2>Hey, I&apos;m Philipp!</h2>
+    <p>Welcome to About :)</p>
   </div>
 );
 
-const Login = (props) => {
-  const history = useHistory();
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    props.onLogin('mluukkai');
-    history.push('/');
-  };
-
-  return (
-    <div>
-      <h2>login</h2>
-      <form onSubmit={onSubmit}>
-        <div>
-          username: <input />
-        </div>
-        <div>
-          password: <input type="password" />
-        </div>
-        <button type="submit">login</button>
-      </form>
-    </div>
-  );
-};
+const Contact = () => (
+  <div>
+    <h2>Hey, I&apos;m Philipp!</h2>
+    <p>Welcome to Contact :)</p>
+  </div>
+);
 
 const App = () => {
-  const [notes] = useState([
-    {
-      id: 1,
-      content: 'HTML is easy',
-      important: true,
-      user: 'Matti Luukkainen',
-    },
-    {
-      id: 2,
-      content: 'Browser can execute only Javascript',
-      important: false,
-      user: 'Matti Luukkainen',
-    },
-    {
-      id: 3,
-      content: 'Most important methods of HTTP-protocol are GET and POST',
-      important: true,
-      user: 'Arto Hellas',
-    },
-  ]);
-
-  const [user, setUser] = useState(null);
-
-  const login = (myuser) => {
-    setUser(myuser);
-  };
-
-  const padding = {
-    padding: 5,
-  };
-
-  const match = useRouteMatch('/notes/:id');
-  const note = match
-    ? notes.find((mynote) => mynote.id === Number(match.params.id))
-    : null;
-
   return (
     <div>
       <div>
-        <Link style={padding} to="/">
-          home
-        </Link>
-        <Link style={padding} to="/notes">
-          notes
-        </Link>
-        <Link style={padding} to="/users">
-          users
-        </Link>
-        {user ? (
-          <em>{user} logged in</em>
-        ) : (
-          <Link style={padding} to="/login">
-            login
-          </Link>
-        )}
+        <Link to="/">home</Link>
+        <Link to="/projects">projects</Link>
+        <Link to="/notes">notes</Link>
+        <Link to="/about">about</Link>
+        <Link to="/contact">contact</Link>
       </div>
 
       <Switch>
-        <Route path="/notes/:id">
-          <Note note={note} />
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
         <Route path="/notes">
-          <Notes notes={notes} />
+          <Notes />
         </Route>
-        <Route path="/users">
-          {user ? <Users /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="/login">
-          <Login onLogin={login} />
+        <Route path="/projects">
+          <Projects />
         </Route>
         <Route path="/">
           <Home />
         </Route>
       </Switch>
-      <div>
-        <br />
-        <em>Note app, Department of Computer Science 2021</em>
-      </div>
     </div>
   );
 };
