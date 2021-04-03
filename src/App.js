@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 // import ReactDOM from 'react-dom'
 // import logo from './logo.svg';
-// import './App.css';
 
 import {
   // BrowserRouter as Router,
@@ -15,6 +14,12 @@ import {
 } from 'react-router-dom';
 
 import styled from 'styled-components';
+import Navbar from './Navbar';
+
+const Container = styled.div`
+  background: #67bc98;
+  height: 100vh;
+`;
 
 const Home = () => (
   <div>
@@ -53,7 +58,8 @@ const Contact = () => (
 
 const App = () => {
   return (
-    <div>
+    <Container>
+      <Navbar />
       <div>
         <Link to="/">home</Link>
         <Link to="/projects">projects</Link>
@@ -79,7 +85,7 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-    </div>
+    </Container>
   );
 };
 
