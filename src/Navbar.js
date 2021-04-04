@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+import { Link } from 'react-router-dom';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <Nav>
       <Logo href="">
-        Philipp<span>Kant</span>
+        Philipp<span> Kant</span>
       </Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -15,10 +17,11 @@ const Navbar = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink href="">Our Work</MenuLink>
-        <MenuLink href="">About</MenuLink>
-        <MenuLink href="">Careers</MenuLink>
-        <MenuLink href="">Contact</MenuLink>
+        <MenuLink to="/">Home</MenuLink>
+        <MenuLink to="/projects">Projects</MenuLink>
+        <MenuLink to="/notes">Notes</MenuLink>
+        <MenuLink to="/about">About</MenuLink>
+        <MenuLink to="/contact">Contact</MenuLink>
       </Menu>
     </Nav>
   );
@@ -51,7 +54,7 @@ const Hamburger = styled.div`
   }
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
@@ -80,7 +83,7 @@ const Menu = styled.div`
   }
 `;
 
-const Logo = styled.a`
+const Logo = styled.div`
   padding: 1rem 0;
   color: #7b7fda;
   text-decoration: none;
