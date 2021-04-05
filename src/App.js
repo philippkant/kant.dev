@@ -35,7 +35,6 @@ const Content = styled.div`
   filter: ${(props) => (props.isOpen ? 'brightness(0.8) blur(10px)' : 'none')};
   //transition: opacity .25s,visibility 0s linear .25s;
   transition: filter 0.5s ease-out;
-}
 `;
 
 const App = () => {

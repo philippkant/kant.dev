@@ -1,24 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
 const Navbar = ({isOpen, setIsOpen}) => {
 
-  const handleClickOutside = e => {
-    console.log("clicking anywhere");
-    if (node.current.contains(e.target)) {
-      // inside click
-      return;
-    }
-    // outside click
-    setOpen(false);
-  };
 
-  const handleChange = selectedValue => {
-    onChange(selectedValue);
-    setOpen(false);
-  };
 
   return (
     <Parent>
