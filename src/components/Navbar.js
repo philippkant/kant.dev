@@ -3,8 +3,22 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar = ({isOpen, setIsOpen}) => {
+
+  const handleClickOutside = e => {
+    console.log("clicking anywhere");
+    if (node.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    setOpen(false);
+  };
+
+  const handleChange = selectedValue => {
+    onChange(selectedValue);
+    setOpen(false);
+  };
 
   return (
     <Parent>
@@ -18,19 +32,19 @@ const Navbar = () => {
           <span />
         </Hamburger>
         <Menu isOpen={isOpen}>
-          <MenuLink to="/">
+          <MenuLink to="/" onClick={() => setIsOpen(!isOpen)}>
             Home
           </MenuLink>
-          <MenuLink to="/projects">
+          <MenuLink to="/projects" onClick={() => setIsOpen(!isOpen)}>
             Projects
           </MenuLink>
-          <MenuLink to="/notes">
+          <MenuLink to="/notes" onClick={() => setIsOpen(!isOpen)}>
             Notes
           </MenuLink>
-          <MenuLink to="/about">
+          <MenuLink to="/about" onClick={() => setIsOpen(!isOpen)}>
             About
           </MenuLink>
-          <MenuLink to="/contact">
+          <MenuLink to="/contact" onClick={() => setIsOpen(!isOpen)}>
             Contact
           </MenuLink>
         </Menu>
@@ -40,6 +54,7 @@ const Navbar = () => {
 };
 
 const Parent = styled.div`
+  z-index: 100;
   position: sticky;
   top: 0;
   width: 100%;
@@ -78,6 +93,7 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(Link)`
+
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
@@ -87,7 +103,9 @@ const MenuLink = styled(Link)`
   font-size: 0.9rem;
 
   &:hover {
-    color: #000000;
+    color: #ff0000;
+    // text-decoration: underline;
+    // text-decoration-thickness: 5px;
   }
 `;
 
@@ -99,8 +117,8 @@ const Menu = styled.div`
     overflow: hidden;
     flex-direction: column;
     width: 100%;
-    max-height: ${(props) => (props.isOpen ? '300px' : '0')};
-    transition: max-height 0.3s ease-in;
+    max-height: ${(props) => (props.isOpen ? '245px' : '0')};
+    transition: max-height 0.2s ease-out;
   }
 `;
 
