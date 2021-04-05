@@ -30,11 +30,11 @@ const Container = styled.div`
 
 const Content = styled.div`
   z-index: 10;
-  opacity: ${(props) => (props.isOpen ? '0.5' : '1.0')};
+  //opacity: ${(props) => (props.isOpen ? '0.5' : '1.0')};
   //background-color: hsla(0,0%,7%,.36);
-  filter: ${(props) => (props.isOpen ? 'brightness(0.8) blur(10px)' : 'none')};
+  filter: ${(props) => (props.isOpen ? 'brightness(0.8) blur(4px)' : 'none')};
   //transition: opacity .25s,visibility 0s linear .25s;
-  transition: filter 0.5s ease-out;
+  transition: filter 0.3s ease-out;
 `;
 
 const App = () => {
@@ -42,25 +42,25 @@ const App = () => {
 
   return (
     <Container>
-      <Navbar isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
       <Content isOpen={isOpen}>
-      <Switch>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/notes">
-          <Notes />
-        </Route>
-        <Route path="/projects">
-          <Projects />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/notes">
+            <Notes />
+          </Route>
+          <Route path="/projects">
+            <Projects />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
       </Content>
     </Container>
   );

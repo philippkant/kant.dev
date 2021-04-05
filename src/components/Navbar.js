@@ -3,12 +3,41 @@ import styled from 'styled-components';
 
 import { Link } from 'react-router-dom';
 
-const Navbar = ({isOpen, setIsOpen}) => {
+const Navbar = ({ isOpen, setIsOpen }) => {
+  const node = useRef(null);
 
+  const handleClickOutside = (e) => {
+    console.log('clicking anywhere');
+    if (node.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    setIsOpen(false);
+  };
 
+  useEffect(() => {
+    console.log(node.current);
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
 
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
+
+  const closeMenu = () => {
+    if (isOpen === true) {
+      setIsOpen(false);
+    }
+  };
+
+  // ref={node} was the crucial thing I forgot, don't know what it means
   return (
-    <Parent>
+    <Parent ref={node}>
       <Nav>
         <Logo href="">
           Philipp<span> Kant</span>
@@ -19,19 +48,19 @@ const Navbar = ({isOpen, setIsOpen}) => {
           <span />
         </Hamburger>
         <Menu isOpen={isOpen}>
-          <MenuLink to="/" onClick={() => setIsOpen(!isOpen)}>
+          <MenuLink to="/" onClick={closeMenu}>
             Home
           </MenuLink>
-          <MenuLink to="/projects" onClick={() => setIsOpen(!isOpen)}>
+          <MenuLink to="/projects" onClick={closeMenu}>
             Projects
           </MenuLink>
-          <MenuLink to="/notes" onClick={() => setIsOpen(!isOpen)}>
+          <MenuLink to="/notes" onClick={closeMenu}>
             Notes
           </MenuLink>
-          <MenuLink to="/about" onClick={() => setIsOpen(!isOpen)}>
+          <MenuLink to="/about" onClick={closeMenu}>
             About
           </MenuLink>
-          <MenuLink to="/contact" onClick={() => setIsOpen(!isOpen)}>
+          <MenuLink to="/contact" onClick={closeMenu}>
             Contact
           </MenuLink>
         </Menu>
@@ -80,13 +109,12 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(Link)`
-
   padding: 1rem 2rem;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
   color: #000000;
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
   font-size: 0.9rem;
 
   &:hover {
