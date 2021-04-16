@@ -9,3 +9,9 @@
   to = "https://philippkant.com/:splat"
   status = 301
   force = true
+  
+[[redirects]]
+  from = "https://philippkant.de/*"
+  to = "https://philippkant.com/:splat"
+  status = 301
+  force = true
