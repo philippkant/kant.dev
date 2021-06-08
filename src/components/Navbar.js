@@ -146,7 +146,7 @@ const Logo = styled.div`
 
   span {
     font-weight: 300;
-    font-size: 1.3rem;
+    //font-size: 1.3rem;
   }
 `;
 
