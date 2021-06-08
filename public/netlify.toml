@@ -1,17 +1,23 @@
 [[redirects]]
+  from = "https://philippkant.com/*"
+  to = "https://kant.dev/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "https://philipkant.com/*"
-  to = "https://philippkant.com/:splat"
+  to = "https://kant.dev/:splat"
   status = 301
   force = true
   
 [[redirects]]
   from = "https://phillipkant.com/*"
-  to = "https://philippkant.com/:splat"
+  to = "https://kant.dev/:splat"
   status = 301
   force = true
   
 [[redirects]]
   from = "https://philippkant.de/*"
-  to = "https://philippkant.com/:splat"
+  to = "https://kant.dev/:splat"
   status = 301
   force = true

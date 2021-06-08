@@ -40,7 +40,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
     <Parent ref={node}>
       <Nav>
         <Logo href="">
-          Philipp<span> Kant</span>
+          kant<span>.dev</span>
         </Logo>
         <Hamburger onClick={() => setIsOpen(!isOpen)}>
           <span />
