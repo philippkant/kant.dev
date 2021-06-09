@@ -38,6 +38,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
   // ref={node} was the crucial thing I forgot, don't know what it means
   return (
     <Parent ref={node}>
+      <NavContainer>
       <Nav>
         <Logo href="">
           kant<span>.dev</span>
@@ -65,6 +66,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
           </MenuLink>
         </Menu>
       </Nav>
+      </NavContainer>
     </Parent>
   );
 };
@@ -78,6 +80,10 @@ const Parent = styled.div`
   overflow: visible;
 `;
 
+const NavContainer = styled.div`
+  width: 100%;
+`;
+
 const Nav = styled.div`
   padding: 0 2rem;
   display: flex;
@@ -86,8 +92,8 @@ const Nav = styled.div`
   flex-wrap: wrap;
   background: white;
 
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12),
-    0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  //box-shadow: rgb(0 0 0 / 20%) 0px -7px 25px 2px;
 `;
 
 const Hamburger = styled.div`
@@ -109,19 +115,27 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(Link)`
-  padding: 1rem 2rem;
+  //padding: 1rem 2rem;
+  padding: 1rem 2rem 1rem 2rem;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #000000;
+  //color: #000000;
   transition: all 0.2s ease-in;
   font-size: 0.9rem;
 
   &:hover {
     color: #ff0000;
+    //background:#000000;
     // text-decoration: underline;
     // text-decoration-thickness: 5px;
   }
+
+  &:last-child {
+   // padding-right: 30rem;
+  }
+
+
 `;
 
 const Menu = styled.div`
@@ -138,7 +152,8 @@ const Menu = styled.div`
 `;
 
 const Logo = styled.div`
-  padding: 1rem 0;
+  padding: 1rem 0 1rem 5rem;
+  //padding: 1rem 0;
   color: #ff0000;
   text-decoration: none;
   font-weight: 800;

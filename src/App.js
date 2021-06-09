@@ -26,6 +26,9 @@ const color1 = '#f6f7f8';
 const Container = styled.div`
   background: ${color1};
   height: 100vh;
+  //max-width: 80rem;
+  margin: 0 auto;
+  box-sizing: border-box;
 `;
 
 const Content = styled.div`
@@ -35,6 +38,7 @@ const Content = styled.div`
   filter: ${(props) => (props.isOpen ? 'brightness(0.8) blur(4px)' : 'none')};
   //transition: opacity .25s,visibility 0s linear .25s;
   transition: filter 0.3s ease-out;
+  //max-width: 80rem;
 `;
 
 const App = () => {
