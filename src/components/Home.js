@@ -4,17 +4,19 @@ import styled from 'styled-components';
 const Container = styled.div`
   //color: #000000;
   //background-color: #f6f7f8;
-  padding: 30px 75px;
-  margin-top: 100px;
-  @media (max-width: 768px) {
-    padding: 35px 25px;
-  }
+  //padding: 30px 75px;
+  //margin-top: 100px;
+  //@media (max-width: 768px) {
+  //  padding: 35px 25px;
+ // }
+ p {
+ }
 `;
 
 const Home = () => {
   return (
     <Container>
-      Test ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
+      <p>Test ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
       eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
       voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
       clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit
@@ -66,7 +68,7 @@ const Home = () => {
       sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
       diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
       erat. Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-      ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
+      ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et</p>
     </Container>
   );
 };
