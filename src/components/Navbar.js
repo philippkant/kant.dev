@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ isOpen, setIsOpen }) => {
   const node = useRef(null);
-
   const handleClickOutside = (e) => {
     console.log('clicking anywhere');
     if (node.current.contains(e.target)) {
@@ -34,7 +33,10 @@ const Navbar = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
     }
   };
-
+  const color2 = '#0096ff';
+  //const color3 = '#19294a';
+  const style = {color: color2}
+                 //fontWeight: 'bold'};
   // ref={node} was the crucial thing I forgot, don't know what it means
   return (
     <Parent ref={node}>
@@ -48,19 +50,19 @@ const Navbar = ({ isOpen, setIsOpen }) => {
           <span />
         </Hamburger>
         <Menu isOpen={isOpen}>
-          <MenuLink to="/" onClick={closeMenu}>
+          <MenuLink activeStyle={style} exact to="/" onClick={closeMenu} >
             Home
           </MenuLink>
-          <MenuLink to="/projects" onClick={closeMenu}>
+          <MenuLink activeStyle={style} exact to="/projects" onClick={closeMenu}>
             Projects
           </MenuLink>
-          <MenuLink to="/notes" onClick={closeMenu}>
+          <MenuLink activeStyle={style} exact to="/notes" onClick={closeMenu}>
             Notes
           </MenuLink>
-          <MenuLink to="/about" onClick={closeMenu}>
+          <MenuLink activeStyle={style} exact to="/about" onClick={closeMenu}>
             About
           </MenuLink>
-          <MenuLink to="/contact" onClick={closeMenu}>
+          <MenuLink activeStyle={style} exact to="/contact" onClick={closeMenu}>
             Contact
           </MenuLink>
         </Menu>
@@ -70,23 +72,38 @@ const Navbar = ({ isOpen, setIsOpen }) => {
 };
 
 const Parent = styled.div`
+  box-sizing: border-box; 
   z-index: 100;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   //width: 100%
-  background: #003153;
+  //background: #262626; css-tricks color navbar
+  background: #111827;
+  /* background: linear-gradient(
+    45deg,
+    #003153,
+    #003153 50%,
+    #000000 50%,
+    #000000
+  );
+  background-size: vh 1rem; */
+  /* background-image: linear-gradient(black, black 50%, pink 50%, pink);
+  background-repeat: no-repeat;
+  background-size: 100% 5px;
+  background-position: 0 center; */
+
   //height: 0;
   overflow: visible;
   //box-shadow: rgb(0 0 0 / 20%) 0px -7px 25px 2px;
-  //box-shadow: inset 0 -2px 5px rgb(0 0 0 / 33%)
-  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  //box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.28), 0 1px 10px 0 rgba(0, 0, 0, 0.24), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
 `;
 
 const Nav = styled.div`
   //padding: 0.5rem 1rem;
-  padding: 0 2rem;
+  //padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -110,6 +127,7 @@ const Hamburger = styled.div`
     background: #ffffff;
     margin-bottom: 4px;
     border-radius: 5px;
+    margin-right: 1rem;
   }
 
   @media (max-width: 768px) {
@@ -117,29 +135,42 @@ const Hamburger = styled.div`
   }
 `;
 
-const MenuLink = styled(Link)`
-  padding: 1rem 2rem;
+const MenuLink = styled(NavLink)`
+  padding: 1.1rem 0rem;
+  width: 6rem;
+  //height: 100%;
   //padding: 0rem 2rem 0rem 2rem;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #ffffff;
-  transition: all 0.2s ease-in;
+  color: #f6f7f8;
+  //transition: all 0.2s ease-in;
+  transition: background 0.1s ease-in;
   font-size: 1rem;
 
-  &:hover {
-    //color: #d5e5f5;
-    //transform: translateY(-4px);
-    //text-shadow: .25px 0px .1px, -.25px 0px .1px;
-    
-    background: #001b2e;
-    // text-decoration: underline;
-    // text-decoration-thickness: 5px;
-    border: line;
+  @media (max-width: 768px) {
+    width: 100%;
   }
 
-  &:focus {
-    color: #ff0000;
+  @media (min-width: 768px) {
+    &:hover {
+      box-shadow: 0 3px 0 0 #0096ff;
+    }
+  }
+
+  &:hover {
+    //box-shadow: 0 5px 0px 0px black;
+    //color: #0096ff;
+    //transform: translateY(-4px);
+    //text-shadow: .25pxff 0px .1px, -.25px 0px .1px;
+    //mix-blend-mode: difference;
+    //background-color:#004e85;
+    //border-bottom: 1px solid #000;
+    //border-bottom-color: #ffffff;
+    //border-bottom-width: medium;
+    // text-decoration: underline;
+    // text-decoration-thickness: 5px;
+    //border: line;
   }
 
   &:last-child {
@@ -150,28 +181,29 @@ const MenuLink = styled(Link)`
 `;
 
 const Menu = styled.div`
-  display: flex;
+ display: flex;
   justify-content: space-between;
   align-items: center;
   @media (max-width: 768px) {
     overflow: hidden;
     flex-direction: column;
     width: 100%;
-    max-height: ${(props) => (props.isOpen ? '245px' : '0')};
+    max-height: ${(props) => (props.isOpen ? '16.7rem' : '0')};
     transition: max-height 0.2s ease-out;
   }
 `;
 
 const Logo = styled.div`
   //padding: 1rem 0 1rem 5rem;
-  padding: 0.5rem 0;
-  color: #ffffff;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  color: #f6f7f8;
   text-decoration: none;
   font-weight: 800;
   font-size: 2rem;
 
   span {
     font-weight: 300;
+    color: #f6f7f8;
     //font-size: 1.3rem;
   }
 `;

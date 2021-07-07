@@ -30,19 +30,25 @@ const Container = styled.div`
   //max-width: 80rem;
   margin: 0 auto;
   box-sizing: border-box;
+  color: #111827;
+  //filter: brightness(0);
 `;
 
 const Content = styled.div`
   z-index: 10;
   //opacity: ${(props) => (props.isOpen ? '0.5' : '1.0')};
   //background-color: hsla(0,0%,7%,.36);
-  filter: ${(props) => (props.isOpen ? 'brightness(0.8) blur(4px)' : 'none')};
+  //filter: ${(props) => (props.isOpen ? 'brightness(0.8) blur(4px)' : 'none')};
+  //opacity: ${(props) => (props.isOpen ? '0.2' : '1.0')};
+  //background-color: ${(props) => (props.isOpen ? '#888888' : '${color1}')};
   //transition: opacity .25s,visibility 0s linear .25s;
-  transition: filter 0.3s ease-out;
+  filter: ${(props) => (props.isOpen ? 'blur(0.2rem)' : 'none')};
+  //transition: filter 0.3s ease-out;
   max-width: 80rem;
   margin: 0 auto;
   padding-top: 7rem;
-
+  padding-left: 0.5rem;
+  padding-right: auto;
   //width: 100%;
 `;
 
@@ -55,7 +61,6 @@ const App = () => {
     <Container>
       <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
       <Content isOpen={isOpen}>
-        <h1>Bark Beetle Infestation</h1>
         <Switch>
           <Route path="/contact">
             <Contact />
