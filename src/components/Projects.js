@@ -2,71 +2,42 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Card from './Card';
 
+//link_three="https://kant.dev/tutorials"
+//link_three_text="Tutorial"
+
 const Projects = () => {
   return (
-    <div>
-      <h2>Hey, I&apos;m Philipp!</h2>
+    <ProjectContainer>
       <Grid>
       <Card
-        img={require('../images/twitter-bot.png')}
+        img={require('../images/twitterimg.png')}
         title="Twitter bot"
-        description="Twitter bot that tweets everyday what happened on that day in the past"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
-      />
-      <Card
-        img={require('../images/testimg.png')}
-        title="Data Analysis of Green Beans in the Sahahara"
-        description="Multiple analysis with Python to some green beens asdf asd fas dfas dfasdf asdfsdfa sdfa sdfa sdfasdfa sdfasdf asdfasdfasdffasdasfas"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
-      />
-      <Card
-        img={require('../images/twitter-bot.png')}
-        title="Twitter bot"
-        description="Twitter bot that tweets everyday what happened on that day in the past"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
-      />
-      <Card
-        img={require('../images/testimg.png')}
-        title="Data Analysis of Green Beans in the Sahahara"
-        description="Multiple analysis with Python to some green beens"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
-      />
-      <Card
-        img={require('../images/twitter-bot.png')}
-        title="Twitter bot"
-        description="Twitter bot that tweets everyday what happened on that day in the past"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
-      />
-      <Card
-        img={require('../images/testimg.png')}
-        title="Data Analysis of Green Beans in the Sahahara"
-        description="Multiple analysis with Python to some green beens"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
-      />
-      <Card
-        img={require('../images/twitter-bot.png')}
-        title="Twitter bot"
-        description="Twitter bot that tweets everyday what happened on that day in the past"
-        link_code="https://github.com/philippkant/twitter-history-bot"
-        link_website="https://twitter.com/historyyearsago"
+        description="TTwitter bot that tweets about historical events that happened on this date."
+        technologies="Javascript - Node.js - Express.js - Heroku"
+        link_one="https://github.com/philippkant/twitter-history-bot"
+        link_two="https://twitter.com/historyyearsago"
+        link_one_text="Github"
+        link_two_text="Website"
       />
       </Grid>
-    </div>
+    </ProjectContainer>
   );
 };
 
+const ProjectContainer = styled.div`
+
+  h1 {
+    text-align: center;
+  }
+`;
+
 const Grid = styled.div`
   box-sizing: border-box; 
-  margin: 2rem;
-  padding: 0;
+  padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 20rem);
+  grid-template-columns: repeat(auto-fill, 17rem);
+  //grid-template-rows: 1fr;
+  grid-auto-rows: 24rem;
   grid-gap: 2rem;
   justify-content: center;
 `;

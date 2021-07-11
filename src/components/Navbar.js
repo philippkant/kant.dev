@@ -56,8 +56,8 @@ const Navbar = ({ isOpen, setIsOpen }) => {
           <MenuLink activeStyle={style} exact to="/projects" onClick={closeMenu}>
             Projects
           </MenuLink>
-          <MenuLink activeStyle={style} exact to="/notes" onClick={closeMenu}>
-            Notes
+          <MenuLink activeStyle={style} exact to="/tutorials" onClick={closeMenu}>
+            Tutorials
           </MenuLink>
           <MenuLink activeStyle={style} exact to="/about" onClick={closeMenu}>
             About
@@ -136,7 +136,7 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(NavLink)`
-  padding: 1.1rem 0rem;
+  padding: 1.2rem 0rem;
   width: 6rem;
   //height: 100%;
   //padding: 0rem 2rem 0rem 2rem;

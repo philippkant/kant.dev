@@ -17,15 +17,16 @@ import {
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Projects from './components/Projects';
-import Notes from './components/Notes';
+import Tutorials from './components/Tutorials';
 import About from './components/About';
 import Contact from './components/Contact';
 import GlobalStyles from './styles/GlobalStyle';
 
-const color1 = '#f6f7f8';
+const color1 = "#f6f7f8";
 
 const Container = styled.div`
-  background: ${color1};
+  //background: ${color1};
+  //height: 100vh;
   height: 100vh;
   //max-width: 80rem;
   margin: 0 auto;
@@ -46,7 +47,7 @@ const Content = styled.div`
   //transition: filter 0.3s ease-out;
   max-width: 80rem;
   margin: 0 auto;
-  padding-top: 7rem;
+  padding-top: 4rem;
   padding-left: 0.5rem;
   padding-right: auto;
   //width: 100%;
@@ -68,8 +69,8 @@ const App = () => {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/notes">
-            <Notes />
+          <Route path="/tutorials">
+            <Tutorials />
           </Route>
           <Route path="/projects">
             <Projects />

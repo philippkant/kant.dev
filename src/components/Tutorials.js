@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Notes = () => {
+const Tutorials = () => {
   return (
     <div>
-      <h2>Hey, I&apos;m Philipp!</h2>
-      <p>Welcome to Notes</p>
+      <h2>Tutorials</h2>
     </div>
   );
 };
 
-export default Notes;
+export default Tutorials;
