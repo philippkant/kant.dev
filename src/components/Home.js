@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -15,11 +15,15 @@ const Container = styled.div`
 
 const Home = () => {
   return (
-    <Container>
+    <HomeContainer>
       <h1>Work in progress</h1>
-      <p>...</p>
-    </Container>
+    </HomeContainer>
   );
 };
+
+const HomeContainer = styled.div`
+  padding: 2rem;
+`;
+
 
 export default Home;

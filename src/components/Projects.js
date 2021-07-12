@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
 
@@ -7,12 +7,12 @@ import Card from './Card';
 
 const Projects = () => {
   return (
-    <ProjectContainer>
+    <ProjectsContainer>
       <Grid>
       <Card
         img={require('../images/twitterimg.png')}
         title="Twitter bot"
-        description="TTwitter bot that tweets about historical events that happened on this date."
+        description="Twitter bot that tweets about historical events that happened on this date."
         technologies="Javascript - Node.js - Express.js - Heroku"
         link_one="https://github.com/philippkant/twitter-history-bot"
         link_two="https://twitter.com/historyyearsago"
@@ -20,11 +20,11 @@ const Projects = () => {
         link_two_text="Website"
       />
       </Grid>
-    </ProjectContainer>
+    </ProjectsContainer>
   );
 };
 
-const ProjectContainer = styled.div`
+const ProjectsContainer = styled.div`
 
   h1 {
     text-align: center;

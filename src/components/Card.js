@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const light_blue = "#0096ff";
@@ -11,19 +11,17 @@ const Card = (props) => {
     <Container>
         <img src={props.img} />
         <CardBody>
-        <CardText>
-          <h2 className="card_title">{props.title}</h2>
-          <p className="card_description">{props.description}</p>
-          <p className="technologies">{props.technologies}</p>
+          <CardText>
+            <h2 className="card_title">{props.title}</h2>
+            <p className="card_description">{props.description}</p>
+            <p className="technologies">{props.technologies}</p>
           </CardText>
-          <div>
-      <ButtonArea>
-        {props.link_one ? <a className="link1" href={props.link_one}>{props.link_one_text}</a> : null}
-        {props.link_two ? <a className="link2" href={props.link_two}>{props.link_two_text}</a> : null}
-        {props.link_three ? <a className="link3" href={props.link_three}>{props.link_three_text}</a> : null}
-      </ButtonArea>
-      </div>
-      </CardBody>
+          <ButtonArea>
+            {props.link_one ? <a className="link1" href={props.link_one}>{props.link_one_text}</a> : null}
+            {props.link_two ? <a className="link2" href={props.link_two}>{props.link_two_text}</a> : null}
+            {props.link_three ? <a className="link3" href={props.link_three}>{props.link_three_text}</a> : null}
+          </ButtonArea>
+        </CardBody>
     </Container>
   );
 };
@@ -37,7 +35,7 @@ const Container = styled.div`
   box-shadow: 0 3px 6px -1px rgb(0 0 0 / 10%), 0 5px 10px -2px rgb(0 0 0 / 10%);
   //box-shadow: 2px 2px 2px #11111122;
   text-align: left;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   //border: solid 1px ${light_blue};
   height: 100%;
   position: relative;
@@ -45,7 +43,8 @@ const Container = styled.div`
   background: white;
   img {
     width: 100%;
-    height: 12rem;
+    display: block;
+    //height: 12rem;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
   }
@@ -107,15 +106,17 @@ const Container = styled.div`
 `;
 
 const CardText = styled.div`
-  padding: 1rem;
+  padding: 1rem 1rem 0rem 1rem;
 `;
 
 const CardBody = styled.div`
+  //flex-grow : 1;
   /* box-sizing: border-box; 
   margin: 0;
   padding: 0; */
   //position: relative;
-  height: 12rem;
+  //height: 12rem;
+  height: calc(100% - 12rem - 1px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -123,6 +124,8 @@ const CardBody = styled.div`
 `;
 
 const ButtonArea = styled.div`
+  /* position: absolute;
+  bottom: 0; */
   //background: ${dark_blue};
   display: grid;
   //text-transform: uppercase

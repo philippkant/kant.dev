@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const About = () => {
   return (
-    <div>
-      <h2>Hey, I&apos;m Philipp!</h2>
-    </div>
+    <AboutContainer>
+      <h1>Hey, I&apos;m Philipp!</h1>
+    </AboutContainer>
   );
 };
+
+const AboutContainer = styled.div`
+  padding: 2rem;
+`;
 
 export default About;

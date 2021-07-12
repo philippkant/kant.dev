@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Tutorials = () => {
   return (
-    <div>
-      <h2>Tutorials</h2>
-    </div>
+    <TutorialsContainer>
+      <h1>Tutorials</h1>
+      </TutorialsContainer>
   );
 };
+
+const TutorialsContainer = styled.div`
+  padding: 2rem;
+`;
 
 export default Tutorials;

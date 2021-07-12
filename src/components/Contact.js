@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const Contact = () => {
   return (
-    <div>
-      <h2>Contact</h2>
-    </div>
+    <ContactContainer>
+      <h1>Contact</h1>
+    </ContactContainer>
   );
 };
+
+const ContactContainer = styled.div`
+  padding: 2rem;
+`;
+
 
 export default Contact;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import { NavLink } from 'react-router-dom';
@@ -50,7 +50,7 @@ const Navbar = ({ isOpen, setIsOpen }) => {
           <span />
         </Hamburger>
         <Menu isOpen={isOpen}>
-          <MenuLink activeStyle={style} exact to="/" onClick={closeMenu} >
+          <MenuLink activeStyle={style} exact to="/" onClick={closeMenu} title="asdf">
             Home
           </MenuLink>
           <MenuLink activeStyle={style} exact to="/projects" onClick={closeMenu}>
@@ -144,6 +144,7 @@ const MenuLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   color: #f6f7f8;
+  //font-weight: 600;
   //transition: all 0.2s ease-in;
   transition: background 0.1s ease-in;
   font-size: 1rem;
@@ -188,13 +189,14 @@ const Menu = styled.div`
     overflow: hidden;
     flex-direction: column;
     width: 100%;
-    max-height: ${(props) => (props.isOpen ? '16.7rem' : '0')};
+    max-height: ${(props) => (props.isOpen ? '20rem' : '0')};
     transition: max-height 0.2s ease-out;
   }
 `;
 
 const Logo = styled.div`
   //padding: 1rem 0 1rem 5rem;
+  //font-family: 'Roboto', sans-serif;
   padding: 0.5rem 0 0.5rem 0.5rem;
   color: #f6f7f8;
   text-decoration: none;
@@ -202,7 +204,8 @@ const Logo = styled.div`
   font-size: 2rem;
 
   span {
-    font-weight: 300;
+    //font-family: 'Roboto', sans-serif;
+    font-weight: 800;
     color: #f6f7f8;
     //font-size: 1.3rem;
   }

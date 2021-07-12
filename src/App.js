@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import ReactDOM from 'react-dom'
 // import logo from './logo.svg';
 
@@ -11,7 +11,7 @@ import {
   // Link,
   // Redirect,
   // useParams,
-  // useHistory,
+  useLocation,
   // useRouteMatch,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -55,6 +55,14 @@ const Content = styled.div`
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
+  let location = useLocation();
+  useEffect(() => {
+    let title = location.pathname.substring(1)
+    if (!title) {
+      title = "home"
+    }
+    document.title = "kant.dev" + " | " + title[0].toUpperCase() + title.slice(1);
+  });
 
   return (
     <div>
