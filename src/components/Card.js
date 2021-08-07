@@ -2,14 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const light_blue = "#0096ff";
-const dark_blue = "#111827";
+const dark_blue = "#9C2D23";
 const light_grey = "#f6f7f8";
 const dark_grey = "#374151";
 
 const Card = (props) => {
   return (
     <Container>
-        <img src={props.img} />
+        <img src={props.img} alt={props.title}/>
         <CardBody>
           <CardText>
             <h2 className="card_title">{props.title}</h2>
@@ -35,7 +35,7 @@ const Container = styled.div`
   box-shadow: 0 3px 6px -1px rgb(0 0 0 / 10%), 0 5px 10px -2px rgb(0 0 0 / 10%);
   //box-shadow: 2px 2px 2px #11111122;
   text-align: left;
-  border-radius: 0.5rem;
+  border-radius: 0.7rem;
   //border: solid 1px ${light_blue};
   height: 100%;
   position: relative;
@@ -45,7 +45,7 @@ const Container = styled.div`
     width: 100%;
     display: block;
     //height: 12rem;
-    object-fit: cover;
+    //object-fit: cover;
     border-bottom: 1px solid #ddd;
   }
 

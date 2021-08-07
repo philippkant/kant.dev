@@ -33,10 +33,10 @@ const Navbar = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
     }
   };
-  const color2 = '#0096ff';
+  const color2 = '#111827';
   //const color3 = '#19294a';
-  const style = {color: color2}
-                 //fontWeight: 'bold'};
+  const style = { color: color2 };
+  //fontWeight: 'bold'};
   // ref={node} was the crucial thing I forgot, don't know what it means
   return (
     <Parent ref={node}>
@@ -50,29 +50,40 @@ const Navbar = ({ isOpen, setIsOpen }) => {
           <span />
         </Hamburger>
         <Menu isOpen={isOpen}>
-          <MenuLink activeStyle={style} exact to="/" onClick={closeMenu} title="asdf">
+          <MenuLink
+            activeStyle={style}
+            exact
+            to="/"
+            onClick={closeMenu}
+            title="asdf"
+          >
             Home
           </MenuLink>
-          <MenuLink activeStyle={style} exact to="/projects" onClick={closeMenu}>
+          <MenuLink
+            activeStyle={style}
+            exact
+            to="/projects"
+            onClick={closeMenu}
+          >
             Projects
           </MenuLink>
-          <MenuLink activeStyle={style} exact to="/tutorials" onClick={closeMenu}>
+          {/* <MenuLink activeStyle={style} exact to="/tutorials" onClick={closeMenu}>
             Tutorials
-          </MenuLink>
+          </MenuLink> */}
           <MenuLink activeStyle={style} exact to="/about" onClick={closeMenu}>
             About
           </MenuLink>
-          <MenuLink activeStyle={style} exact to="/contact" onClick={closeMenu}>
+          {/* <MenuLink activeStyle={style} exact to="/contact" onClick={closeMenu}>
             Contact
-          </MenuLink>
+          </MenuLink> */}
         </Menu>
       </Nav>
     </Parent>
   );
 };
 
-const Parent = styled.div`
-  box-sizing: border-box; 
+const Parent = styled.header`
+  box-sizing: border-box;
   z-index: 100;
   position: fixed;
   left: 0;
@@ -80,7 +91,7 @@ const Parent = styled.div`
   top: 0;
   //width: 100%
   //background: #262626; css-tricks color navbar
-  background: #111827;
+  background: #4464ad; //111827
   /* background: linear-gradient(
     45deg,
     #003153,
@@ -97,19 +108,20 @@ const Parent = styled.div`
   //height: 0;
   overflow: visible;
   //box-shadow: rgb(0 0 0 / 20%) 0px -7px 25px 2px;
-  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+  //box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   //box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.28), 0 1px 10px 0 rgba(0, 0, 0, 0.24), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
 `;
 
 const Nav = styled.div`
   //padding: 0.5rem 1rem;
   //padding: 0 1rem;
+  //height: 3.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   //background: white;
-  max-width: 80rem;
+  max-width: 60rem;
   margin: auto;
 
   //box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
@@ -120,23 +132,24 @@ const Hamburger = styled.div`
   display: none;
   flex-direction: column;
   cursor: pointer;
+  margin-top: 0.3rem;
 
   span {
-    height: 2px;
-    width: 25px;
+    height: 0.2rem;
+    width: 1.6rem;
     background: #ffffff;
-    margin-bottom: 4px;
-    border-radius: 5px;
+    margin-bottom: 0.3rem;
+    border-radius: 1rem;
     margin-right: 1rem;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 40rem) {
     display: flex;
   }
 `;
 
 const MenuLink = styled(NavLink)`
-  padding: 1.2rem 0rem;
+  padding: 1.1rem 0rem;
   width: 6rem;
   //height: 100%;
   //padding: 0rem 2rem 0rem 2rem;
@@ -144,18 +157,18 @@ const MenuLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   color: #f6f7f8;
-  //font-weight: 600;
+  font-weight: 600;
   //transition: all 0.2s ease-in;
   transition: background 0.1s ease-in;
   font-size: 1rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 40rem) {
     width: 100%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 40rem) {
     &:hover {
-      box-shadow: 0 3px 0 0 #0096ff;
+      box-shadow: 0 3px 0 0 #111827;
     }
   }
 
@@ -175,17 +188,15 @@ const MenuLink = styled(NavLink)`
   }
 
   &:last-child {
-   // padding-right: 30rem;
+    // padding-right: 30rem;
   }
-
-
 `;
 
 const Menu = styled.div`
- display: flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 40rem) {
     overflow: hidden;
     flex-direction: column;
     width: 100%;
@@ -197,6 +208,7 @@ const Menu = styled.div`
 const Logo = styled.div`
   //padding: 1rem 0 1rem 5rem;
   //font-family: 'Roboto', sans-serif;
+  margin-left: 0.5rem;
   padding: 0.5rem 0 0.5rem 0.5rem;
   color: #f6f7f8;
   text-decoration: none;
