@@ -49,8 +49,8 @@ const Projects = () => {
         img={require('../images/kantdev.png')}
         title="kant.dev"
         description="My personal website that you are currently viewing."
-        technologies="Javascript - React.js - 
-        styled-components"
+        technologies="Javascript - React.js -"
+        technologies2="styled-components"
         link_one="https://github.com/philippkant/twitter-history-bot"
         link_two="https://kant.dev"
         link_one_text="Github"
@@ -65,8 +65,14 @@ const ProjectsContainer = styled.div`
 
   h1 {
     font-size: 3rem;
-    padding: 1rem;
+    padding: 2rem;
     padding-top: 4rem;
+
+    @media (max-width: 40rem) {
+      font-size: 2.5rem;
+      padding: 1.5rem;
+      padding-top: 3rem;
+  }
 
   }
 `;
@@ -74,6 +80,9 @@ const ProjectsContainer = styled.div`
 const Grid = styled.div`
   box-sizing: border-box; 
   padding: 2rem;
+  @media (max-width: 40rem) {
+      padding: 1.5rem;
+  }
   display: grid;
   grid-template-columns: repeat(auto-fill, 17rem);
   //grid-template-rows: 1fr;

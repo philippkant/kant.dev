@@ -22,6 +22,7 @@ import Tutorials from './components/Tutorials';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 import GlobalStyles from './styles/GlobalStyle';
 
 const color1 = '#f6f7f8';
@@ -78,6 +79,10 @@ const App = () => {
     if (!title) {
       title = 'home';
     }
+
+    if (title !== "about" && title !== "projects" && title !== "home") {
+      title = '404';
+    }
     document.title =
       title[0].toUpperCase() + title.slice(1) + ' | ' + 'kant.dev';
   });
@@ -94,21 +99,16 @@ const App = () => {
         <main>
           <Content isOpen={isOpen} >
             <Switch>
-              <Route path="/contact">
+              {/* <Route path="/contact">
                 <Contact />
-              </Route>
-              <Route path="/about">
-                <About />
-              </Route>
-              <Route path="/tutorials">
+              </Route> */}
+              {/* <Route path="/tutorials">
                 <Tutorials />
-              </Route>
-              <Route path="/projects">
-                <Projects />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
+              </Route> */}
+              <Route exact path="/projects" component={Projects}/>
+              <Route path="/about" component={About} />
+              <Route exact path="/" component={Home} />
+              <Route component={NotFound} />
             </Switch>
           </Content>
         </main>

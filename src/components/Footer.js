@@ -7,9 +7,30 @@ const About = () => {
     <Container>
       <Copyright><p>© 2021 Philipp Kant</p></Copyright>
       <Social>
-        <FaGithub size="1.5rem" />
-        <FaLinkedin size="1.5rem" />
-        <FaEnvelope size="1.5rem" />
+          <a
+            className="social"
+            href="https://github.com/philippkant/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub size="1.5rem" />
+          </a>
+          <a
+            className="social"
+            href="https://www.linkedin.com/in/philippkant/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin size="1.5rem" />
+          </a>
+          <a
+            className="social"
+            href="mailto:ptckant@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaEnvelope size="1.5rem" />
+          </a>
       </Social>
     </Container>
   );
@@ -29,7 +50,10 @@ const Container = styled.footer`
   align-items: center;
   //padding: 0.5rem;
   padding: 0 3rem;
-  //border-top: solid 0.2rem rgba(255, 0, 0, .1);
+  @media (max-width: 40rem) {
+    padding: 0 1rem;
+  }
+  //border-top: solid 0.01rem rgba(0, 0, 0, 0.2);
   //align-content: center;
   
   //align-items: center;

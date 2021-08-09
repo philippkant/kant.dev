@@ -15,6 +15,7 @@ const Card = (props) => {
             <h2 className="card_title">{props.title}</h2>
             <p className="card_description">{props.description}</p>
             <p className="technologies">{props.technologies}</p>
+            <p className="technologies2">{props.technologies2}</p>
           </CardText>
           <ButtonArea>
             {props.link_one ? <a className="link1" href={props.link_one}>{props.link_one_text}</a> : null}
@@ -64,6 +65,10 @@ const Container = styled.div`
   }
 
   .technologies {
+    font-size: 0.8rem;
+    //font-family: ui-sans-serif, sans-serif;
+  }
+  .technologies2 {
     font-size: 0.8rem;
     //font-family: ui-sans-serif, sans-serif;
   }
@@ -130,7 +135,8 @@ const ButtonArea = styled.div`
   display: grid;
   //text-transform: uppercase
   //margin: 0.5rem 1rem;
-  padding: 1rem;
+  padding: 0.7rem;
+  padding-top: 0.7rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: "github website tutorial";

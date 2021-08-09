@@ -55,7 +55,6 @@ const Navbar = ({ isOpen, setIsOpen }) => {
             exact
             to="/"
             onClick={closeMenu}
-            title="asdf"
           >
             Home
           </MenuLink>

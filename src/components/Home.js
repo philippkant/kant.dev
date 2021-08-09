@@ -35,7 +35,7 @@ const Home = () => {
         <h1>Philipp Kant</h1> */}
         <div className="short">
           {/* Software Developer. Computer Science student. Data */}A Software
-          Developer and Computer Science student with a passion for Web
+          Developer and Computer Science student that loves doing Web
           Development and Data Science.
           {/* Computer Science student with focus on Data Science. Currently learning web development. */}
         </div>
@@ -55,7 +55,7 @@ const Home = () => {
           </a>
           <a
             className="same"
-            href="https://linkedin.com/philippkant/"
+            href="https://www.linkedin.com/in/philippkant/"
             target="_blank"
             rel="noopener noreferrer"
             title="Look through my Github profile"
@@ -131,6 +131,7 @@ const ProfileCard = styled.div`
       padding-top: 1rem;
       font-size: 1.9rem;
       text-align: center;
+      letter-spacing: -0.086rem;
     }
 
   }
@@ -146,8 +147,13 @@ const ProfileCard = styled.div`
     letter-spacing: -0.2rem;
     //padding: 1rem;
     @media (max-width: 40rem) {
-      
+      letter-spacing: -0.17rem;
       font-size: 3.8rem;
+    }
+
+    @media (max-width: 20rem) {
+      letter-spacing: -0.17rem;
+      font-size: 3.6rem;
     }
   }
 
@@ -194,14 +200,16 @@ const Introduction = styled.div`
   .short {
 
     padding: 1rem;
-    letter-spacing: -0rem;
-    font-size: 1.17rem;
+    letter-spacing: -0.03rem;
+    font-size: 1.2rem;
     font-weight: 400;
     box-sizing: border-box;
 
     @media (max-width: 40rem) {
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+    letter-spacing: 0rem;
     max-width: 20rem;
   }
   }
@@ -212,7 +220,7 @@ const Introduction = styled.div`
     align-items: center;
     gap: 0.5rem;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     @media (max-width: 40rem) {
       font-size: 0;
   }
