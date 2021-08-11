@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import img from '../images/profile3.jpg';
+import img from '../images/profile.jpg';
+
+const color1 = '#9BC1BC';
+const color2 = '#5D576B';
+//const color2 = '#5D576B';
 
 const Container = styled.div`
   //color: #000000;
@@ -43,6 +47,7 @@ const Home = () => {
         <h2>Software Developer</h2>
         <h2>Data Scientist</h2> */}
         <Social>
+          <div className="iconcontainer">
           <a
             className="same"
             href="https://github.com/philippkant/"
@@ -50,9 +55,11 @@ const Home = () => {
             rel="noopener noreferrer"
             title="Look through my Github profile"
           >
-            <FaGithub size="1.5rem" />
-            Github
+            <FaGithub size="1.5rem" className="icon" />
+            <span className="icontext">Github</span>
           </a>
+          </div>
+          <div className="iconcontainer">
           <a
             className="same"
             href="https://www.linkedin.com/in/philippkant/"
@@ -60,9 +67,11 @@ const Home = () => {
             rel="noopener noreferrer"
             title="Look through my Github profile"
           >
-            <FaLinkedin size="1.5rem" />
-            LinkedIn
+            <FaLinkedin size="1.5rem" className="icon"/>
+            <span className="icontext">LinkedIn</span>
           </a>
+          </div>
+          <div className="iconcontainer">
           <a
             className="same"
             href="mailto:ptckant@gmail.com"
@@ -70,9 +79,10 @@ const Home = () => {
             rel="noopener noreferrer"
             title="Look through my Github profile"
           >
-            <FaEnvelope size="1.5rem" />
-            Email
+            <FaEnvelope size="1.5rem" className="icon"/>
+            <span className="icontext">Email</span>
           </a>
+          </div>
         </Social>
       </Introduction>
     </Container>
@@ -82,6 +92,7 @@ const Home = () => {
 const ProfileCard = styled.div`
   height: 8rem;
   display: flex;
+  color: ${(props) => props.theme.textStart};
 
 
   @media (max-width: 40rem) {
@@ -110,7 +121,8 @@ const ProfileCard = styled.div`
     //overflow: hidden;
 
     border-radius: 50%;
-    border: solid #111827 0.2rem;
+    border: solid ${(props) => props.theme.menuLinkActive} 0.2rem;
+    
   }
 
   img {
@@ -123,8 +135,10 @@ const ProfileCard = styled.div`
   }
 
   .hi {
+    
     font-size: 2.2rem;
     letter-spacing: -0.1rem;
+    
 
     //font-weight: 400;
     @media (max-width: 40rem) {
@@ -138,7 +152,7 @@ const ProfileCard = styled.div`
 
   h1 {
 
-
+    color: ${(props) => props.theme.menuLinkActive};
     font-weight: 700;
     margin: 0;
     //padding-top: 0.0rem;
@@ -159,7 +173,6 @@ const ProfileCard = styled.div`
 
   .profile-text {
     padding: 0 1rem;
-
     @media (max-width: 40rem) {
       padding: 0;
     }
@@ -196,6 +209,7 @@ const Introduction = styled.div`
   //align-self: center;
   //border: 2px solid;
   max-width: 34rem;
+  color: ${(props) => props.theme.textStart};
 
   .short {
 
@@ -239,6 +253,27 @@ const Introduction = styled.div`
 `;
 
 const Social = styled.div`
+  a {
+    color: ${(props) => props.theme.socialStart};
+    &:hover {
+      color: ${(props) => props.theme.socialStartHover};
+    }
+    &:active {
+      color: ${(props) => props.theme.socialStartHover};
+    }
+  }
+  /* .iconcontainer {
+    color: red !important;
+  } */
+  /* .icon {
+    color: #111827;
+    &:hover {
+      color: green;
+    }
+  }
+  .icontext {
+    color: #111827;
+  } */
 
 @media (max-width: 40rem) {
     max-width: 20rem;

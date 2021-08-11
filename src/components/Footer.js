@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { IconContext } from "react-icons";
 
-const About = () => {
+const Footer = ({location}) => {
   return (
     <Container>
-      <Copyright><p>© 2021 Philipp Kant</p></Copyright>
-      <Social>
+      <Copyright location={location}><p>© 2021 Philipp Kant</p></Copyright>
+      <Social location={location}>
           <a
             className="social"
             href="https://github.com/philippkant/"
@@ -37,13 +38,13 @@ const About = () => {
 };
 
 const Container = styled.footer`
-  opacity: 0.5;
+
   box-sizing: border-box;
   //max-width: 60rem;
   /* position: relative;
   margin-top: -10rem;
   background: orange; */
-  background: k; //#6495ED //#3263A0 //#003153
+  //background: k; //#6495ED //#3263A0 //#003153
   height: 3.3rem;
   display: flex;
   justify-content: space-between;
@@ -64,9 +65,21 @@ const Container = styled.footer`
 const Copyright = styled.div`
   //background: green;
   //flex-grow: 1;
+  opacity: 0.5;
+  color: ${(props) => (props.location ? props.theme.footer : props.theme.footerStart)};
 `;
 
 const Social = styled.div`
+a {
+  opacity: 0.5;
+    color: ${(props) => (props.location ? props.theme.footer : props.theme.footerStart)};
+    &:hover {
+      opacity: 1.0;
+    }
+    &:active {
+      opacity: 1.0;
+    }
+  }
   //background: red;
   /* vertical-align: auto; */
   //flex-grow: 1;
@@ -75,8 +88,10 @@ const Social = styled.div`
   gap: 1rem;
   //padding: 1rem;
   text-align: center;
+
+  
 `;
 
 
 
-export default About;
+export default Footer;

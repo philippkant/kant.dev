@@ -1,9 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { IoSunny, IoMoon } from 'react-icons/io5';
 
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({ isOpen, setIsOpen }) => {
+const color1 = '#5D576B';
+const color2 = '#ED6A5A';
+
+const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light')
+    console.log(theme);
+  }
+
   const node = useRef(null);
   const handleClickOutside = (e) => {
     console.log('clicking anywhere');
@@ -33,55 +43,81 @@ const Navbar = ({ isOpen, setIsOpen }) => {
       setIsOpen(false);
     }
   };
-  const color2 = '#111827';
-  //const color3 = '#19294a';
-  const style = { color: color2 };
+  
+
+  //const style = { color: theme.logo} ;
   //fontWeight: 'bold'};
   // ref={node} was the crucial thing I forgot, don't know what it means
   return (
-    <Parent ref={node}>
+    <Parent ref={node} scroll={scroll} location={location}>
       <Nav>
-        <Logo href="">
+        {/* <button onClick={() => themeToggler()}>theme</button> */}
+        
+        <Logo scroll={scroll} location={location}>
           kant<span>.dev</span>
         </Logo>
-        <Hamburger onClick={() => setIsOpen(!isOpen)}>
+        <Hamburger onClick={() => setIsOpen(!isOpen) } scroll={scroll}
+            location={location}>
           <span />
           <span />
           <span />
         </Hamburger>
         <Menu isOpen={isOpen}>
           <MenuLink
-            activeStyle={style}
             exact
             to="/"
             onClick={closeMenu}
+            scroll={scroll}
+            path={location}
           >
             Home
           </MenuLink>
           <MenuLink
-            activeStyle={style}
             exact
             to="/projects"
             onClick={closeMenu}
+            scroll={scroll}
+            path={location}
           >
             Projects
           </MenuLink>
           {/* <MenuLink activeStyle={style} exact to="/tutorials" onClick={closeMenu}>
             Tutorials
           </MenuLink> */}
-          <MenuLink activeStyle={style} exact to="/about" onClick={closeMenu}>
+          <MenuLink exact to="/about" onClick={closeMenu} scroll={scroll} path={location}>
             About
           </MenuLink>
           {/* <MenuLink activeStyle={style} exact to="/contact" onClick={closeMenu}>
             Contact
           </MenuLink> */}
+          {theme === 'light' ?
+          <IoMoon size="1.5rem" className="icon"  onClick={() => themeToggler()} />
+        : <IoSunny size="1.5rem" className="icon" onClick={() => themeToggler()} />}
+        {/* <IoMoon size="1.5rem" className="icon" onClick={() => themeToggler()} /> */}
         </Menu>
+        
       </Nav>
     </Parent>
   );
 };
 
 const Parent = styled.header`
+  .icon {
+     // background: ${(props) => props.theme.sunMoon};
+   // padding: 0.2rem;
+    border-radius: 100%;
+    cursor: pointer;
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem; //0.8rem
+    color: ${(props) => (props.scroll && props.location ? props.theme.sunMoon : props.theme.sunMoonScroll)};
+    &:hover {
+      color: ${(props) => props.theme.sunMoonHover};
+    }
+    @media (max-width: 40rem) {
+    right: 5rem;
+  }
+  }
   box-sizing: border-box;
   z-index: 100;
   position: fixed;
@@ -90,7 +126,8 @@ const Parent = styled.header`
   top: 0;
   //width: 100%
   //background: #262626; css-tricks color navbar
-  background: #4464ad; //111827
+  background: ${(props) => (props.scroll && props.location ? props.theme.navbar : props.theme.navbarStart)}; //111827
+  
   /* background: linear-gradient(
     45deg,
     #003153,
@@ -107,6 +144,7 @@ const Parent = styled.header`
   //height: 0;
   overflow: visible;
   //box-shadow: rgb(0 0 0 / 20%) 0px -7px 25px 2px;
+  box-shadow:  ${(props) => (props.scroll && props.location ? "0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%)" : "0")};
   //box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   //box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.28), 0 1px 10px 0 rgba(0, 0, 0, 0.24), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
 `;
@@ -115,6 +153,7 @@ const Nav = styled.div`
   //padding: 0.5rem 1rem;
   //padding: 0 1rem;
   //height: 3.5rem;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -131,15 +170,20 @@ const Hamburger = styled.div`
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-top: 0.3rem;
+  margin-top: 5px;
+  &:active, &:hover {
+      span {
+        background: ${(props) => props.theme.hamburgerHover};
+      }
+    }
 
   span {
-    height: 0.2rem;
-    width: 1.6rem;
-    background: #ffffff;
-    margin-bottom: 0.3rem;
-    border-radius: 1rem;
-    margin-right: 1rem;
+    height: 3px;
+    width: 28px;
+    background: ${(props) => (props.scroll && props.location ? props.theme.hamburgerStart : props.theme.hamburger)};
+    margin-bottom: 5px;
+    border-radius: 2px;
+    margin-right: 1.5rem;
   }
 
   @media (max-width: 40rem) {
@@ -148,6 +192,7 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(NavLink)`
+  
   padding: 1.1rem 0rem;
   width: 6rem;
   //height: 100%;
@@ -155,7 +200,10 @@ const MenuLink = styled(NavLink)`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: #f6f7f8;
+  color: ${(props) => (props.scroll && props.path ? props.theme.menuLink : props.theme.menuLinkScroll)};
+  &.active {
+    color: ${(props) => props.theme.menuLinkActive};
+  }
   font-weight: 600;
   //transition: all 0.2s ease-in;
   transition: background 0.1s ease-in;
@@ -166,9 +214,34 @@ const MenuLink = styled(NavLink)`
   }
 
   @media (min-width: 40rem) {
-    &:hover {
+    /* &:hover {
       box-shadow: 0 3px 0 0 #111827;
+    } */
+    position: relative;
+    &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 0.3rem;
+    background-color: ${(props) => props.theme.menuLinkUnderline};
+    transform: scaleX(0%);
+    transition:transform 0.5s cubic-bezier(.23,1,.32,1);
+  }
+  
+  &::before {
+    transform-origin: 50% 0;
+  }
+ 
+  &:hover {
+    &::before {
+      transform:scaleX(100%);
+      transform-origin: 50% 0;
     }
+  }
   }
 
   &:hover {
@@ -186,12 +259,46 @@ const MenuLink = styled(NavLink)`
     //border: line;
   }
 
-  &:last-child {
+  &:nth-last-child(2) {
+
+    @media (max-width: 66rem) {
+      margin-right: 3.5rem;
+    }
+    /* @media (max-width: 65rem) {
+      margin-right: 2rem;
+    } */
+/*     
+    @media (max-width: 65rem) {
+      margin-right: 1rem;
+    }
+
+    @media (max-width: 64rem) {
+      margin-right: 2rem;
+    }
+
+    @media (max-width: 63rem) {
+      margin-right: 3rem;
+    } */
+
+
+    /* @media (min-width: 62rem) and (max-width: 63rem) {
+      margin-right: 2rem;
+    }
+
+    @media (max-width: 61rem) and (min-width: 62rem){
+      margin-right: 1rem;
+    } */
+
+    @media (max-width: 40rem) {
+      margin-right: auto;
+      border-bottom: solid 0.5rem ${(props) => props.theme.menuLinkActive};
+    }
     // padding-right: 30rem;
   }
 `;
 
 const Menu = styled.div`
+//border: solid ${(props) => props.theme.text} 0.2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -199,7 +306,7 @@ const Menu = styled.div`
     overflow: hidden;
     flex-direction: column;
     width: 100%;
-    max-height: ${(props) => (props.isOpen ? '20rem' : '0')};
+    max-height: ${(props) => (props.isOpen ? '11rem' : '0')};
     transition: max-height 0.2s ease-out;
   }
 `;
@@ -207,9 +314,12 @@ const Menu = styled.div`
 const Logo = styled.div`
   //padding: 1rem 0 1rem 5rem;
   //font-family: 'Roboto', sans-serif;
-  margin-left: 0.5rem;
-  padding: 0.5rem 0 0.5rem 0.5rem;
-  color: #f6f7f8;
+  //margin-left: 0.5rem;
+  padding: 0.5rem 0 0.5rem 2rem;
+  @media (max-width: 40rem) {
+    padding: 0.5rem 0 0.5rem 1.5rem;
+  }
+  color: ${(props) => (props.scroll && props.location ? props.theme.logoScroll : props.theme.logo)};
   text-decoration: none;
   font-weight: 800;
   font-size: 2rem;
@@ -217,7 +327,7 @@ const Logo = styled.div`
   span {
     //font-family: 'Roboto', sans-serif;
     font-weight: 800;
-    color: #f6f7f8;
+    color: ${(props) => (props.scroll && props.location ? props.theme.logoSpanScroll : props.theme.logoSpan)}; //#f6f7f8
     //font-size: 1.3rem;
   }
 `;

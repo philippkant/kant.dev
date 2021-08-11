@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 // import ReactDOM from 'react-dom'
 // import logo from './logo.svg';
 
-
 import styled from 'styled-components';
 
 import {
@@ -25,7 +24,11 @@ import Footer from './components/Footer';
 import NotFound from './components/NotFound';
 import GlobalStyles from './styles/GlobalStyle';
 
-const color1 = '#f6f7f8';
+import { ThemeProvider } from 'styled-components';
+import { lightTheme, darkTheme } from './theme.js';
+
+const color1 = '#E6EBE0';
+const color2 = '#5D576B';
 
 const Container = styled.div`
   //background: ${color1};
@@ -35,11 +38,11 @@ const Container = styled.div`
   //max-width: 80rem;
   //margin: 0 auto;
   //box-sizing: border-box;
-  //color: #111827;
+  color: ${(props) => props.theme.text};
   //filter: brightness(0);
   //background: blue;
   //background: #4464ad; //#6495ED //#3263A0 //#003153
-  background: ${(props) => (props.location ? '#f6f7f8' : '#4464ad')};
+  background: ${(props) => (props.location ? props.theme.background : props.theme.backgroundStart)};
 `;
 
 const Content = styled.div`
@@ -57,7 +60,6 @@ const Content = styled.div`
   //transition: opacity .25s,visibility 0s linear .25s;
   filter: ${(props) => (props.isOpen ? 'blur(0.2rem)' : 'none')};
 
-  
   //transition: filter 0.3s ease-out;
   max-width: 60rem;
   margin: 0 auto;
@@ -70,17 +72,28 @@ const Content = styled.div`
 `;
 
 const App = () => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    console.log(scroll);
+    document.addEventListener('scroll', () => {
+        setScroll(window.scrollY > 1);
+    });
+  }, []);
+
+  const [theme, setTheme] = useState('light');
+
   const [isOpen, setIsOpen] = useState(false);
   let path = useLocation().pathname;
-  const location = path.split("/")[1];
-  console.log(location);
+  const location = path.split('/')[1];
+  //console.log(location);
   useEffect(() => {
     let title = path.substring(1);
     if (!title) {
       title = 'home';
     }
 
-    if (title !== "about" && title !== "projects" && title !== "home") {
+    if (title !== 'about' && title !== 'projects' && title !== 'home') {
       title = '404';
     }
     document.title =
@@ -93,27 +106,36 @@ const App = () => {
 
   return (
     <div>
-      <GlobalStyles />
-      <Container location={location}>
-        <Navbar isOpen={isOpen} setIsOpen={setIsOpen} />
-        <main>
-          <Content isOpen={isOpen} >
-            <Switch>
-              {/* <Route path="/contact">
+      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Container location={location}>
+          <Navbar
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            theme={theme}
+            setTheme={setTheme}
+            scroll={scroll}
+            location={location}
+          />
+          <main>
+            <Content isOpen={isOpen}>
+              <Switch>
+                {/* <Route path="/contact">
                 <Contact />
               </Route> */}
-              {/* <Route path="/tutorials">
+                {/* <Route path="/tutorials">
                 <Tutorials />
               </Route> */}
-              <Route exact path="/projects" component={Projects}/>
-              <Route path="/about" component={About} />
-              <Route exact path="/" component={Home} />
-              <Route component={NotFound} />
-            </Switch>
-          </Content>
-        </main>
-        <Footer />
-      </Container>
+                <Route exact path="/projects" component={Projects} />
+                <Route path="/about" component={About} />
+                <Route exact path="/" component={Home} />
+                <Route component={NotFound} />
+              </Switch>
+            </Content>
+          </main>
+          <Footer location={location} />
+        </Container>
+      </ThemeProvider>
     </div>
   );
 };

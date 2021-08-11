@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const light_blue = "#0096ff";
-const dark_blue = "#9C2D23";
-const light_grey = "#f6f7f8";
-const dark_grey = "#374151";
+const color1 = "#ED6A5A";
+const color2 = "#9BC1BC";
+const color3 = "#374151";
+const color4 = "#fff";
 
 const Card = (props) => {
   return (
@@ -36,18 +36,18 @@ const Container = styled.div`
   box-shadow: 0 3px 6px -1px rgb(0 0 0 / 10%), 0 5px 10px -2px rgb(0 0 0 / 10%);
   //box-shadow: 2px 2px 2px #11111122;
   text-align: left;
-  border-radius: 0.7rem;
-  //border: solid 1px ${light_blue};
+  border-radius: 0.5rem;
+  //border: solid 0.2rem ${(props) => props.theme.card};
   height: 100%;
   position: relative;
   overflow: hidden;
-  background: white;
+  background: ${(props) => props.theme.card};
   img {
     width: 100%;
     display: block;
     //height: 12rem;
     //object-fit: cover;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid ${(props) => props.theme.cardText};
   }
 
   h2 {
@@ -81,24 +81,23 @@ const Container = styled.div`
     //width: 5rem;
     //margin: 0.6rem;
     text-decoration: none;
-    //background: ${dark_blue};
-    border: solid 1px #aaaaaa;
-    color: ${dark_grey};
+    background-color: ${(props) => props.theme.cardButton};
+    border: solid 1px ${(props) => props.theme.cardButtonBorder};
+    color: ${(props) => props.theme.cardButtonText};
     border-radius: 2rem;
 
-    //border-bottom: 4px solid ${light_blue};
     //border-radius: 0.5rem;
     &:hover {
-      background-color: ${dark_blue};
-      color: ${light_grey};
-      border: 1px solid ${dark_blue};
+      background-color: ${(props) => props.theme.cardButtonHover};
+      color: ${(props) => props.theme.cardButtonTextHover};
+      border: 1px solid ${(props) => props.theme.cardButtonBorderHover};
     } 
   }
 
-  .line {
+  /* .line {
     border-top: 1px solid #dddddd;
     margin: 0 1rem;
-  }
+  } */
 
   hr {
     display: block;
@@ -131,7 +130,6 @@ const CardBody = styled.div`
 const ButtonArea = styled.div`
   /* position: absolute;
   bottom: 0; */
-  //background: ${dark_blue};
   display: grid;
   //text-transform: uppercase
   //margin: 0.5rem 1rem;
@@ -141,7 +139,6 @@ const ButtonArea = styled.div`
   grid-template-rows: 1fr;
   grid-template-areas: "github website tutorial";
   grid-gap: 0.5rem;
-  //background-color: ${dark_blue};
   .link1{
     grid-area: github;
   }
