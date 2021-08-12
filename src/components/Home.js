@@ -92,6 +92,7 @@ const Home = () => {
 const ProfileCard = styled.div`
   height: 8rem;
   display: flex;
+  transition: color 0.5s;
   color: ${(props) => props.theme.textStart};
 
 
@@ -151,7 +152,7 @@ const ProfileCard = styled.div`
   }
 
   h1 {
-
+    transition: color 0.5s;
     color: ${(props) => props.theme.menuLinkActive};
     font-weight: 700;
     margin: 0;
@@ -209,6 +210,7 @@ const Introduction = styled.div`
   //align-self: center;
   //border: 2px solid;
   max-width: 34rem;
+  transition: color 0.5s;
   color: ${(props) => props.theme.textStart};
 
   .short {
@@ -254,6 +256,7 @@ const Introduction = styled.div`
 
 const Social = styled.div`
   a {
+    transition: color 0.5s;
     color: ${(props) => props.theme.socialStart};
     &:hover {
       color: ${(props) => props.theme.socialStartHover};

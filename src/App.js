@@ -38,15 +38,19 @@ const Container = styled.div`
   //max-width: 80rem;
   //margin: 0 auto;
   //box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: color 0.5s, background-color 0.5s;
   color: ${(props) => props.theme.text};
   //filter: brightness(0);
   //background: blue;
   //background: #4464ad; //#6495ED //#3263A0 //#003153
   background: ${(props) => (props.location ? props.theme.background : props.theme.backgroundStart)};
+  
 `;
 
 const Content = styled.div`
-  min-height: calc(100vh - 3.3rem);
+  min-height: calc(100vh - 3.5rem);
   margin-bottom: -3.5rem;
   //background: yellow;
 
@@ -63,7 +67,7 @@ const Content = styled.div`
   //transition: filter 0.3s ease-out;
   max-width: 60rem;
   margin: 0 auto;
-  margin-top: 3.3rem;
+  margin-top: 3.5rem;
   //padding-top: 4rem;
   //padding-left: 0.5rem;
   //padding-right: auto;

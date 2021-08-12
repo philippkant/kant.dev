@@ -55,6 +55,7 @@ const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
         
         <Logo scroll={scroll} location={location}>
           kant<span>.dev</span>
+          {/* <img src={require('../images/logo.svg')} alt="Logo" /> */}
         </Logo>
         <Hamburger onClick={() => setIsOpen(!isOpen) } scroll={scroll}
             location={location}>
@@ -102,7 +103,10 @@ const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
 };
 
 const Parent = styled.header`
+  
+  transition: background-color 0.5s, box-shadow 0.5s;
   .icon {
+    //transition: color 0.5s;
      // background: ${(props) => props.theme.sunMoon};
    // padding: 0.2rem;
     border-radius: 100%;
@@ -110,6 +114,8 @@ const Parent = styled.header`
     position: absolute;
     right: 1.5rem;
     top: 1rem; //0.8rem
+    transition: color 0.5s;
+    
     color: ${(props) => (props.scroll && props.location ? props.theme.sunMoon : props.theme.sunMoonScroll)};
     &:hover {
       color: ${(props) => props.theme.sunMoonHover};
@@ -118,6 +124,7 @@ const Parent = styled.header`
     right: 5rem;
   }
   }
+  
   box-sizing: border-box;
   z-index: 100;
   position: fixed;
@@ -126,6 +133,7 @@ const Parent = styled.header`
   top: 0;
   //width: 100%
   //background: #262626; css-tricks color navbar
+  
   background: ${(props) => (props.scroll && props.location ? props.theme.navbar : props.theme.navbarStart)}; //111827
   
   /* background: linear-gradient(
@@ -144,6 +152,7 @@ const Parent = styled.header`
   //height: 0;
   overflow: visible;
   //box-shadow: rgb(0 0 0 / 20%) 0px -7px 25px 2px;
+  //transition: box-shadow 0.5s;
   box-shadow:  ${(props) => (props.scroll && props.location ? "0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%)" : "0")};
   //box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
   //box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.28), 0 1px 10px 0 rgba(0, 0, 0, 0.24), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
@@ -152,7 +161,8 @@ const Parent = styled.header`
 const Nav = styled.div`
   //padding: 0.5rem 1rem;
   //padding: 0 1rem;
-  //height: 3.5rem;
+  height: 3.5rem;
+  //height: 5rem;
   
   display: flex;
   justify-content: space-between;
@@ -180,6 +190,7 @@ const Hamburger = styled.div`
   span {
     height: 3px;
     width: 28px;
+    transition: background-color 0.5s;
     background: ${(props) => (props.scroll && props.location ? props.theme.hamburgerStart : props.theme.hamburger)};
     margin-bottom: 5px;
     border-radius: 2px;
@@ -200,13 +211,14 @@ const MenuLink = styled(NavLink)`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
+  transition: color 0.5s;
   color: ${(props) => (props.scroll && props.path ? props.theme.menuLink : props.theme.menuLinkScroll)};
   &.active {
     color: ${(props) => props.theme.menuLinkActive};
   }
   font-weight: 600;
   //transition: all 0.2s ease-in;
-  transition: background 0.1s ease-in;
+  //transition: background 0.1s ease-in;
   font-size: 1rem;
 
   @media (max-width: 40rem) {
@@ -312,21 +324,41 @@ const Menu = styled.div`
 `;
 
 const Logo = styled.div`
+  /* img {
+    display: block;
+    height: 2rem;
+    padding: 0;
+    margin: 0;
+    margin-left: 2rem;
+    @media (max-width: 40rem) {
+      margin-left: 1.5rem;
+  }
+}*/
+    //margin-left: 1.5rem;
   //padding: 1rem 0 1rem 5rem;
   //font-family: 'Roboto', sans-serif;
   //margin-left: 0.5rem;
-  padding: 0.5rem 0 0.5rem 2rem;
+  //border: solid ${(props) => (props.scroll && props.location ? props.theme.logoScroll : props.theme.logo)};
+  //border-radius: 0.5rem;
+  //padding: 0 0.5rem;
+
+  //padding: 0.5rem 0 0.5rem 2rem;
+  margin-left: 2rem;
   @media (max-width: 40rem) {
-    padding: 0.5rem 0 0.5rem 1.5rem;
+    //padding: 0.5rem 0 0.5rem 1.5rem;
+    margin-left: 1.5rem;
   }
+  transition: color 0.5s;
   color: ${(props) => (props.scroll && props.location ? props.theme.logoScroll : props.theme.logo)};
   text-decoration: none;
   font-weight: 800;
   font-size: 2rem;
 
   span {
+    //border: solid ${(props) => (props.scroll && props.location ? props.theme.logoScroll : props.theme.logo)};
     //font-family: 'Roboto', sans-serif;
     font-weight: 800;
+    transition: color 0.5s;
     color: ${(props) => (props.scroll && props.location ? props.theme.logoSpanScroll : props.theme.logoSpan)}; //#f6f7f8
     //font-size: 1.3rem;
   }
