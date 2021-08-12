@@ -8,10 +8,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   *:focus {
-    -webkit-tap-highlight-color: transparent;
-    outline: 0 !important;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+-webkit-tap-highlight-color: transparent;
 }
 
   body {

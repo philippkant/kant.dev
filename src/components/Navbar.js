@@ -179,7 +179,7 @@ const Nav = styled.div`
 const Hamburger = styled.div`
   display: none;
   flex-direction: column;
-  cursor: pointer;
+  //cursor: pointer;
   margin-top: 5px;
   &:active, &:hover {
       span {
@@ -203,7 +203,8 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(NavLink)`
-  
+
+
   padding: 1.1rem 0rem;
   width: 6rem;
   //height: 100%;

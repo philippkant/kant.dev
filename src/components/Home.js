@@ -261,7 +261,7 @@ const Social = styled.div`
     &:hover {
       color: ${(props) => props.theme.socialStartHover};
     }
-    &:active {
+    &:focus {
       color: ${(props) => props.theme.socialStartHover};
     }
   }

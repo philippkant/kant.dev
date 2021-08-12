@@ -80,7 +80,7 @@ const Text = styled.div`
   p {
     padding-bottom: 1rem;
     @media (max-width: 40rem) {
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.8rem;
   }
   }
 
