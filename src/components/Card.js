@@ -48,7 +48,7 @@ const Container = styled.div`
   img {
     width: 100%;
     display: block;
-    //border-bottom: 1px solid ${(props) => props.theme.cardText};
+    border-bottom: 1px solid #ccc;
   }
 
   h2 {
@@ -98,6 +98,7 @@ const CardBody = styled.div`
 `;
 
 const ButtonArea = styled.div`
+  font-weight: 400;
   display: grid;
   padding: 0.7rem;
   padding-top: 0.7rem;

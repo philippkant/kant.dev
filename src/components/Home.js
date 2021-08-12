@@ -155,7 +155,7 @@ const Introduction = styled.div`
 
   .short {
     padding: 1rem;
-    letter-spacing: -0.03rem;
+    letter-spacing: -0.02rem;
     font-size: 1.2rem;
     font-weight: 400;
     box-sizing: border-box;

@@ -179,6 +179,11 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(NavLink)`
+  @media (max-width: 40rem) {
+      &:active {
+        background: ${(props) => props.theme.menuLink};
+      }
+    }
   padding: 1.1rem 0rem;
   width: 6rem;
   cursor: pointer;
