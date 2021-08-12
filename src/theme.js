@@ -1,3 +1,5 @@
+//#9BC1BC
+
 // export const lightTheme = {
 //   background: '#E6EBE0',
 //   backgroundStart: '#5D576B',

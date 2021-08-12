@@ -7,6 +7,13 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
   }
 
+  *:focus {
+    -webkit-tap-highlight-color: transparent;
+    outline: 0 !important;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+}
+
   body {
     background-color: #f6f7f8;
     //overflow: overlay;

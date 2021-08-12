@@ -67,7 +67,7 @@ const Content = styled.div`
   //transition: filter 0.3s ease-out;
   max-width: 60rem;
   margin: 0 auto;
-  margin-top: 3.5rem;
+  margin-top: 3.4rem;
   //padding-top: 4rem;
   //padding-left: 0.5rem;
   //padding-right: auto;

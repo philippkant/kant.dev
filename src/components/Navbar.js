@@ -11,12 +11,12 @@ const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
 
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
-    console.log(theme);
+    //console.log(theme);
   }
 
   const node = useRef(null);
   const handleClickOutside = (e) => {
-    console.log('clicking anywhere');
+    //console.log('clicking anywhere');
     if (node.current.contains(e.target)) {
       // inside click
       return;
@@ -26,7 +26,7 @@ const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
   };
 
   useEffect(() => {
-    console.log(node.current);
+    //console.log(node.current);
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
@@ -161,7 +161,7 @@ const Parent = styled.header`
 const Nav = styled.div`
   //padding: 0.5rem 1rem;
   //padding: 0 1rem;
-  height: 3.5rem;
+  //height: 3.5rem;
   //height: 5rem;
   
   display: flex;
@@ -342,7 +342,7 @@ const Logo = styled.div`
   //border-radius: 0.5rem;
   //padding: 0 0.5rem;
 
-  //padding: 0.5rem 0 0.5rem 2rem;
+  padding: 0.5rem 0 0.5rem 0;
   margin-left: 2rem;
   @media (max-width: 40rem) {
     //padding: 0.5rem 0 0.5rem 1.5rem;

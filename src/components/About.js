@@ -72,7 +72,7 @@ const Text = styled.div`
   font-weight: 500;
 
   @media (max-width: 40rem) {
-    font-size: 1rem;
+    font-size: 1.2rem;
     padding: 1.5rem;
     font-weight: 500;
   }
