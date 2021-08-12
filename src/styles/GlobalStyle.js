@@ -9,8 +9,8 @@ const GlobalStyles = createGlobalStyle`
 
   *:focus {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
--webkit-tap-highlight-color: transparent;
-}
+    -webkit-tap-highlight-color: transparent;
+  }
 
   body {
     background-color: #f6f7f8;
@@ -24,7 +24,5 @@ const GlobalStyles = createGlobalStyle`
     //width: 100vw
   }
 
-
-  
 `;
 export default GlobalStyles;
