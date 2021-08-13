@@ -4,6 +4,8 @@ My personal website.
 
 You can see it live here: [``` kant.dev ```](https://kant.dev/)
 
+![demo](./src/images/kantdev_readme.png)
+
 ## Tech Stack
 
 - [React](https://reactjs.org/)
