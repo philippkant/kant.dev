@@ -16,13 +16,6 @@ const GlobalStyles = createGlobalStyle`
     background-color: #f6f7f8;
     //overflow: overlay;
   }
-
-  html {
-    //margin-left: calc(100vw - 100%);
-    //margin-right: 0;
-    //overflow-y: scroll;
-    //width: 100vw
-  }
-
+  
 `;
 export default GlobalStyles;

@@ -70,7 +70,8 @@ const Container = styled.div`
 
   a {
     text-align: center;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
     padding: 0.4rem;
     text-decoration: none;
     background-color: ${(props) => props.theme.cardButton};
@@ -87,7 +88,7 @@ const Container = styled.div`
 `;
 
 const CardText = styled.div`
-  padding: 1rem 1rem 0rem 1rem;
+  padding: 0.8rem 1rem 0rem 1rem;
 `;
 
 const CardBody = styled.div`
@@ -98,10 +99,9 @@ const CardBody = styled.div`
 `;
 
 const ButtonArea = styled.div`
-  font-weight: 400;
   display: grid;
-  padding: 0.7rem;
-  padding-top: 0.7rem;
+  padding: 0.5rem 1rem 1rem 1rem;
+  //padding-top: 0.7rem;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   grid-template-areas: 'github website tutorial';

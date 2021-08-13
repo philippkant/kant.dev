@@ -12,7 +12,7 @@ const NotFound = () => {
 
 const Container = styled.div`
   h1 {
-    font-size: 3rem;
+    font-size: 5rem;
     padding: 2rem;
     padding-top: 4rem;
   }

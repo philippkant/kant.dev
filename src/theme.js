@@ -1,46 +1,3 @@
-//#9BC1BC
-
-// export const lightTheme = {
-//   background: '#E6EBE0',
-//   backgroundStart: '#5D576B',
-//   text: '#5D576B',
-//   textStart: '#E6EBE0',
-//   headerUnderline: '#ED6A5A',
-
-//   socialStart: '#E6EBE0',
-//   socialStartHover: '#ED6A5A',
-
-//   logo: '#5D576B',
-//   logoScroll: '#E6EBE0',
-//   logoSpan: '#5D576B',
-//   logoSpanScroll: '#E6EBE0',
-
-//   menuLink: '#E6EBE0',
-//   menuLinkScroll: '#5D576B',
-//   menuLinkActive: '#ED6A5A',
-//   menuLinkUnderline: '#ED6A5A',
-
-//   sunMoon: '#F4F1BB',
-//   sunMoonScroll: '#5D576B',
-//   sunMoonHover: '#ED6A5A',
-
-//   hamburger: '#5D576B',
-//   hamburgerStart: '#E6EBE0',
-//   hamburgerHover: '#ED6A5A',
-
-//   card: '#f6f7f8',
-//   cardButton: '#f6f7f8',
-//   cardText: '#5D576B',
-//   cardButtonBorder: '#5D576B',
-//   cardButtonText: '#5D576B',
-//   cardButtonHover: '#5D576B',
-//   cardButtonBorderHover: '#5D576B',
-//   cardButtonTextHover: '#f6f7f8',
-
-//   footer: '#5D576B',
-//   footerStart: '#E6EBE0',
-// };
-
 export const lightTheme = {
   background: '#E6EBE0',
   backgroundStart: '#E6EBE0',
@@ -128,3 +85,5 @@ export const darkTheme = {
   footer: '#E6EBE0',
   footerStart: '#E6EBE0',
 };
+
+//#9BC1BC
