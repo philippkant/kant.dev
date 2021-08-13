@@ -4,6 +4,10 @@ import { IoSunny, IoMoon } from 'react-icons/io5';
 
 import { NavLink } from 'react-router-dom';
 
+// import logo from '../images/logo4.svg';
+// import ReactLogo from '../images/logo4.svg';
+// import MyLogo from './MyLogo';
+
 const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light');
@@ -41,9 +45,69 @@ const Navbar = ({ isOpen, setIsOpen, theme, setTheme, scroll, location }) => {
   return (
     <Parent ref={node} scroll={scroll} location={location}>
       <Nav>
-        <Logo scroll={scroll} location={location}>
-          kant<span>.dev</span>
+        <Logo scroll={scroll} location={location} exact
+            to="/">
+        <svg
+     xmlns="http://www.w3.org/2000/svg"
+     id="svg8"
+     version="1.1"
+     viewBox="0 0 115.06823 114.86882"
+     height="2.5rem"
+     width="2.5rem">
+    <defs
+       id="defs2" />
+    <metadata
+       id="metadata5">
+      <rdfRDF>
+        <ccWork
+           rdfAbout="">
+          <dcFormat>image/svg+xml</dcFormat>
+          <dcType
+             rdfResource="http://purl.org/dc/dcmitype/StillImage" />
+          <dcTitle></dcTitle>
+        </ccWork>
+      </rdfRDF>
+    </metadata>
+    <g
+      transform="translate(-25.18937,-41.786977)"
+       id="layer1">
+      <path
+       id="path993"
+       d="M 30.936333,41.817115 V 118.62371"
+  />
+      <path
+       id="path995"
+       d="M 48.190037,41.786977 V 118.59185"
+
+  />
+      <path
+       id="path999"
+       d="M 65.423065,80.097364 V 118.59918"
+  />
+      <path
+       id="path1001"
+       d="M 82.669162,41.889691 V 118.49754"
+  />
+      <path
+       id="path1003"
+       d="m 99.938806,80.1203 v 38.30366"
+  />
+      <path
+       id="path1005"
+       d="M 117.21916,80.071427 V 156.63238"
+  />
+      <path
+       id="path1007"
+       d="M 134.51064,80.047936 V 156.6558"
+  />
+    </g>
+  </svg>
+  {/* <div class="kantdev">kant<span>.dev</span></div> */}
+          {/* <div class="logo"></div> */}
+          {/* <img src={require('../images/logo4.svg')} alt="Logo" /> */}
+          {/* kant<span>.dev</span> */}
         </Logo>
+        {/* <MyLogo fill="#f0f"/> */}
         <Hamburger
           onClick={() => setIsOpen(!isOpen)}
           scroll={scroll}
@@ -179,11 +243,6 @@ const Hamburger = styled.div`
 `;
 
 const MenuLink = styled(NavLink)`
-  @media (max-width: 40rem) {
-      &:active {
-        background: ${(props) => props.theme.menuLink};
-      }
-    }
   padding: 1.1rem 0rem;
   width: 6rem;
   cursor: pointer;
@@ -239,6 +298,7 @@ const MenuLink = styled(NavLink)`
 
     @media (max-width: 40rem) {
       margin-right: auto;
+      //box-sizing: content-box;
       border-bottom: solid 0.5rem ${(props) => props.theme.menuLinkActive};
     }
   }
@@ -257,12 +317,48 @@ const Menu = styled.div`
   }
 `;
 
-const Logo = styled.div`
+const Logo = styled(NavLink)`
+display: flex;
+justify-content: center;
+align-items: center;
+cursor: pointer;
+gap: 0.5rem;
+&:hover, &:active {
+  stroke: ${(props) => props.theme.menuLinkActive};
+}
+      fill:none;
+    stroke: ${(props) =>
+    props.scroll && props.location ? props.theme.logoScroll : props.theme.logo};
+    transition: stroke 0.5s;
+    stroke-width:11.49392605;
+    stroke-linecap:butt;
+    stroke-linejoin:miter;
+    stroke-miterlimit:4;
+    stroke-dasharray:none;
+    stroke-opacity:1;
+    margin-left: 1.5rem;
+    @media (max-width: 40rem) {
+    margin-left: 1rem;
+  }
+    padding: 0.5rem;
+  /* img {
+    display: block;
+    height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    //margin-left: 2rem;
+    @media (max-width: 40rem) {
+      margin-left: 1.5rem;
+    }
+  }
   padding: 0.5rem 0 0.5rem 0;
   margin-left: 2rem;
   @media (max-width: 40rem) {
     margin-left: 1.5rem;
-  }
+  }*/
+  .kantdev {
+
+  
   transition: color 0.5s;
   color: ${(props) =>
     props.scroll && props.location ? props.theme.logoScroll : props.theme.logo};
@@ -278,6 +374,7 @@ const Logo = styled.div`
         ? props.theme.logoSpanScroll
         : props.theme.logoSpan};
   }
+}
 `;
 
 export default Navbar;
