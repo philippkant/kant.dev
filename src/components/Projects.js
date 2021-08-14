@@ -11,7 +11,7 @@ const Projects = () => {
       <Grid>
         <Card
           img={require('../images/twitterbot.png')}
-          title="History Twitter bot"
+          title="Twitter bot"
           description="Twitter bot that tweets about historical events that happened on this date."
           technologies="Javascript - Node.js - Express.js - Heroku"
           link_two="https://twitter.com/historyyearsago"
