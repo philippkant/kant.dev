@@ -21,6 +21,16 @@ const About = () => {
           play football (soccer) or just hang out with friends.
         </p>
         <p>
+          <a
+            class="shadow-underline"
+            href={process.env.PUBLIC_URL + '/cv.pdf'}
+            target="_blank"
+          >
+            View CV
+          </a>
+        </p>
+
+        <p>
           <strong>Feel free to contact me anytime!</strong>
         </p>
       </Text>
@@ -65,16 +75,16 @@ const Text = styled.div`
   a {
     color: inherit;
     text-decoration: none;
+    font-weight: 700;
+    //color: ${(props) => props.theme.headerUnderline};
   }
-
   .shadow-underline {
-    box-shadow: inset 0 -0.45em 0 #f58f29;
+    box-shadow: inset 0 -0.45em 0 ${(props) => props.theme.headerUnderline};
     transition: box-shadow 0.3s ease;
   }
-
   .shadow-underline:hover,
   .shadow-underline:active {
-    box-shadow: inset 0 -1.25em 0 #f58f29;
+    box-shadow: inset 0 -1.25em 0 ${(props) => props.theme.headerUnderline};
   }
 `;
 
