@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import img from '../images/profile4.jpg';
+import img from '../images/profile5.jpg';
 
 const Container = styled.div`
   height: calc(100vh - 7rem);
