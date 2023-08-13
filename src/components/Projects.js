@@ -22,11 +22,13 @@ const Projects = () => {
         <Card
           img={require('../images/learncity.png')}
           title="Learn City (Hackathon)"
-          description="My team's submission for the Level-Up Society hackathon. It was then further developed by me and a friend."
+          description="My team's submission for the Level-Up Society hackathon."
           technologies="Javascript - Kaboom.js - Bootstrap"
           link_one="https://devpost.com/software/learn-city"
           link_two="https://einguterwaran.github.io/LearnCity/"
           link_three="https://github.com/EinGuterWaran/LearnCity"
+          collaboratorName="Janu Lingeswaran"
+          collaboratorLink="https://www.lingeswaran.com"        
           link_one_text="Devpost"
           link_two_text="Website"
           link_three_text="Github"
