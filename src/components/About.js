@@ -31,7 +31,7 @@ const About = () => {
         </p>
 
         <p>
-          <strong>Feel free to contact me anytime!</strong>
+          <strong>Feel free to contact me anytime! :)</strong>
         </p>
       </Text>
     </Container>
