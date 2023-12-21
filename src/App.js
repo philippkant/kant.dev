@@ -25,13 +25,13 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  min-height: calc(100vh - 3.5rem);
-  margin-bottom: 0rem;
+  max-height: calc(100vh - 3.5rem);
+  margin-bottom: -3.5rem;
   z-index: 10;
   filter: ${(props) => (props.isOpen ? 'blur(0.2rem)' : 'none')};
   max-width: 60rem;
   margin: 0 auto;
-  margin-top: 0rem;
+  margin-top: 3.4rem;
 `;
 
 const App = () => {
