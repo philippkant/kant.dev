@@ -25,7 +25,7 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  max-height: calc(100vh - 3.5rem);
+  min-height: calc(100vh - 7rem);
   margin-bottom: -3.5rem;
   z-index: 10;
   filter: ${(props) => (props.isOpen ? 'blur(0.2rem)' : 'none')};
