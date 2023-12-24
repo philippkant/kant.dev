@@ -8,7 +8,14 @@ const Card = (props) => {
       <CardBody>
         <CardText>
           <h2 className="card_title">{props.title}</h2>
-          <p className="card_description">{props.description}</p>
+          <p className="card_description">{props.description}
+            {props.collaboratorName && props.collaboratorLink && (
+              <span>
+                {' '}It was then further developed by me and my friend{' '}
+                <a className="collaborator-link" href={props.collaboratorLink}>{props.collaboratorName}</a>.
+              </span>
+            )}
+          </p>
           <p className="technologies">{props.technologies}</p>
           <p className="technologies2">{props.technologies2}</p>
         </CardText>
@@ -68,7 +75,7 @@ const Container = styled.div`
     font-size: 0.8rem;
   }
 
-  a {
+  a:not(.collaborator-link) {
     text-align: center;
     font-size: 0.8rem;
     font-weight: 600;
