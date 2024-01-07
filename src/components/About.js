@@ -9,15 +9,15 @@ const About = () => {
       </h1>
       <Text>
         <p>
-          I am <strong>Philipp Kant</strong>, a passionate Data Scientist and Web Developer, holding a Master's degree in Computer Science with a specialization in Deep Learning from RWTH Aachen University. With a strong foundation in software development and a deep understanding of data analysis, here's what I offer:
+          Hi, I'm <strong>Philipp Kant</strong>, a passionate Data Scientist and Web Developer, holding a Master's degree in Computer Science with a specialization in Deep Learning from RWTH Aachen University. With a strong foundation in software development and a deep understanding of data analysis, here's what I offer:
         </p>
     <p>
         <ul>
-          <li>Advanced knowledge in MACHINE LEARNING and DATA SCIENCE</li>
-          <li>Extensive experience in WEB DEVELOPMENT and interface design</li>
+          <li>Advanced knowledge in machine learning and data science</li>
+          <li>Extensive experience in web development and interface design</li>
           <li>Expertise in Python, JavaScript, and modern technologies</li>
-          <li>Effective solutions for DATA PROCESSING and ANALYSIS</li>
-          <li>Development of STRATEGIES for data integration and optimization</li>
+          <li>Effective solutions for data processing and analysis</li>
+          <li>Development of strategies for data integration and optimization</li>
         </ul>
     </p>
         <p>
@@ -75,10 +75,10 @@ const Text = styled.div`
     }
   }
 
-  li {
-    padding-left: 1rem;
+  ul {
+    padding-left: 2rem;
     @media (max-width: 40rem) {
-      padding-left: 0.8rem;
+      padding-left: 1rem;
     }
   }
 
