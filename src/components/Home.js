@@ -24,7 +24,6 @@ const Home = () => {
           </div>
         </ProfileCard>
         <div className="short">
-            A Software Developer combining data science expertise with software development for smart, data-driven solutions.
             A Software Developer combining data science expertise with modern technologies for smart, data-driven solutions.
         </div>
 
