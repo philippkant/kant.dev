@@ -75,6 +75,13 @@ const Text = styled.div`
     }
   }
 
+  li {
+    padding-left: 1rem;
+    @media (max-width: 40rem) {
+      padding-left: 0.8rem;
+    }
+  }
+
   a {
     color: inherit;
     text-decoration: none;
