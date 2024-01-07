@@ -155,13 +155,13 @@ const Introduction = styled.div`
   .short {
     padding: 1rem;
     letter-spacing: -0.02rem;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 400;
     box-sizing: border-box;
 
     @media (max-width: 40rem) {
       padding: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       text-align: center;
       letter-spacing: 0rem;
       max-width: 20rem;
