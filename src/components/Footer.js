@@ -6,7 +6,7 @@ const Footer = ({ location }) => {
   return (
     <Container>
       <Copyright location={location}>
-        <p>© 2021 Philipp Kant</p>
+        <p>© 2024 Philipp Kant</p>
       </Copyright>
       <Social location={location}>
         <a
