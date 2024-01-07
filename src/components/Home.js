@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import img from '../images/profile5.jpg';
+import img from '../images/profile6.jpg';
 
 const Container = styled.div`
   height: calc(100vh - 7rem);
@@ -24,8 +24,7 @@ const Home = () => {
           </div>
         </ProfileCard>
         <div className="short">
-          A Software Developer and Computer Science student that loves doing Web
-          Development and Data Science.
+            A Software Developer combining data science expertise with software development for smart, data-driven solutions.
         </div>
 
         <Social>
