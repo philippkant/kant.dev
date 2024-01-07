@@ -9,16 +9,17 @@ const About = () => {
       </h1>
       <Text>
         <p>
-          Hi, I'm <strong>Philipp</strong>. I'm currently doing my Master's
-          degree in Computer Science at RWTH Aachen University in Germany. There
-          I'm specializing in Data Science and Machine Learning.
+          I am <strong>Philipp Kant</strong>, a dedicated Data Scientist and Web Developer, holding a Master's degree in Computer Science with a specialization in Deep Learning from RWTH Aachen University. With a strong foundation in software development and a deep understanding of data analysis, here's what I offer:
         </p>
+        <ul>
+          <li>Advanced knowledge in MACHINE LEARNING and DATA SCIENCE</li>
+          <li>Extensive experience in WEB DEVELOPMENT and interface design</li>
+          <li>Expertise in Python, JavaScript, and modern technologies</li>
+          <li>Effective solutions for DATA PROCESSING and ANALYSIS</li>
+          <li>Development of STRATEGIES for data integration and optimization</li>
+        </ul>
         <p>
-          Besides studying I enjoy building things and am usually busy with side
-          projects. My favourite languages are Python and Javascript. Currently
-          I love creating web applications using the PERN stack. When I'm not in
-          front of a computer screen, I like to spend time outdoors, do sports,
-          play football (soccer) or just hang out with friends.
+          I bring a combination of technical expertise and practical experience to support companies as a consultant and freelance developer. My goal is to meet and exceed your digital ambitions with tailored, effective strategies and techniques. Let's talk about how I can advance your business with innovative data-driven solutions.
         </p>
         <p>
           <a
@@ -31,7 +32,7 @@ const About = () => {
         </p>
 
         <p>
-          <strong>Feel free to contact me anytime! :)</strong>
+          <strong>Feel free to contact me anytime!</strong>
         </p>
       </Text>
     </Container>
